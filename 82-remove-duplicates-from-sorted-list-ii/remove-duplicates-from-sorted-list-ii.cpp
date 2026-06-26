@@ -12,24 +12,23 @@ class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
         //kind of traverse the list and thn check the elemt if the next elemt is equal then change the prev pointer to the next value like remove the elemts until a new diff elemt comes up
+
         ListNode dummy(0);
         dummy.next = head;
 
-        ListNode* prev = &dummy;
+        ListNode*prev = &dummy;
         ListNode* curr = head;
 
-        while(curr != NULL){
-            if(curr->next && curr ->val == curr->next->val){
-                int value = curr->val;
-
-                while(curr && curr->val == value){
+        while(curr){
+            if(curr->next && curr->val== curr->next->val ){
+                int x = curr->val;
+                while(curr && curr->val == x){
                     curr = curr->next;
+                    prev->next = curr;
                 }
-                prev->next = curr;
-            }
-            else{
+            }else{
                 prev = curr;
-                curr = curr->next;
+                curr= curr->next;
             }
         }
         return dummy.next;
