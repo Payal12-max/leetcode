@@ -10,6 +10,7 @@
  */
 class Solution {
 public:
+// first just convert the list inot the array and normally check whether its a palindrome or not by using two pointer method.
     bool isPalindrome(ListNode* head) {
         vector<int> arr;
         while(head){
