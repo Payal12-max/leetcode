@@ -21,6 +21,7 @@ public:
         return final;
     }
 };*/
+//here the thing is simple if we use the first app it will give tle because w eare scaning the string again and again so instead of that use only non zero gigits an drest as zero while making the element x 
 class Solution {
 public:
     vector<int> sumAndMultiply(string s, vector<vector<int>>& queries) {
