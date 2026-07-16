@@ -15,9 +15,9 @@ public:
     }
 
     bool enQueue(int value) {
-
-        if(isFull())
+        if (isFull()) {
             return false;
+        }
 
         rear = (rear + 1) % size;
         q[rear] = value;
@@ -27,9 +27,9 @@ public:
     }
 
     bool deQueue() {
-
-        if(isEmpty())
+        if (isEmpty()) {
             return false;
+        }
 
         front = (front + 1) % size;
         count--;
@@ -38,17 +38,17 @@ public:
     }
 
     int Front() {
-
-        if(isEmpty())
+        if (isEmpty()) {
             return -1;
+        }
 
         return q[front];
     }
 
     int Rear() {
-
-        if(isEmpty())
+        if (isEmpty()) {
             return -1;
+        }
 
         return q[rear];
     }
