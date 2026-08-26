@@ -25,8 +25,8 @@ public:
         return result;
     }
 };*/
-
-class Solution {
+//On^2 sol
+/*class Solution {
 public:
     string shortestBeautifulSubstring(string s, int k) {
         int n = s.length();
@@ -64,5 +64,41 @@ public:
         }
 
         return result;
+    }
+};*/
+
+class Solution {
+public:
+    string shortestBeautifulSubstring(string s, int k) {
+        vector<int> pos;
+
+        // Store positions of all 1s
+        for (int i = 0; i < s.length(); i++) {
+            if (s[i] == '1') {
+                pos.push_back(i);
+            }
+        }
+
+        if (pos.size() < k)
+            return "";
+
+        string ans = "";
+
+        // Take every group of k consecutive 1s
+        for (int i = 0; i + k - 1 < pos.size(); i++) {
+
+            int left = pos[i];
+            int right = pos[i + k - 1];
+
+            string sub = s.substr(left, right - left + 1);
+
+            if (ans == "" ||
+                sub.length() < ans.length() ||
+                (sub.length() == ans.length() && sub < ans)) {
+                ans = sub;
+            }
+        }
+
+        return ans;
     }
 };
